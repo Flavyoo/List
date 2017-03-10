@@ -96,6 +96,7 @@ def HardKdistinct(a):
     return count
 
 def removeDupInPlace(a):
+    # Work in progress, does not work properly.
     "Removes duplicates in an array without allocating extra memory."
     a = sorted(a)
     print a
