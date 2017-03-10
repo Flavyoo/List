@@ -1,5 +1,4 @@
 import random
-import helper
 
 
 #This module is collection of simple programs that can be done on a list.
@@ -160,19 +159,26 @@ def addsum(list1, list2):
 
 
 def longest_repeat(a):
-    "Takes in a list and finds the longest continuous sequence of an item."
-    count = 0
-    reset = 0
-    element = a[0]
-    for i in a:
-        if element == i:
-            count += 1
-        else:
-            element = i
-            count = 1
-        if count > reset:
-            reset = count
-    return reset
+    """
+    Takes in a list and finds the longest continuous sequence of an item.
+    Returns a tuple of the most repeated element, and how many times it was
+    repeated.
+    """
+    s = 0  #current stretch start
+    l = 1  #current stretch length
+    ms = 0 #longest stretch start
+    ml = 0 #longest stretch length
+    for i in range(1, len(a)):
+        if a[i] != a[i - 1]:
+            s = 1
+            l = 1
+        if a[i] == a[i - 1]:
+            l += 1
+            s = i
+        if l > ml:
+            ml = l
+            ms = s
+    return (a[ms - 1], ml)
 
 
 def make1D(a):
@@ -185,10 +191,11 @@ def make1D(a):
 
 
 def main():
-    a = [1, 2, 3, 4, 5, -1, -1, -1]
+    a = [1, 2, 3, 4, 5, 5, 5, 5, 6, 6, 3,9]
     #print(removeDupInPlace(a))
     #print(HKdistinct(a))
     #print(KSmallest(array, 99))
+    print longest_repeat(a)
     print("\n")
     print("Removed in Place " + str(removeDupInPlace(a)))
     print("There are " + str(kDuplicates(a)) + " duplicates.")
