@@ -31,9 +31,7 @@ def reverse(a):
 
 
 def shuffle(a):
-    """
-    Shuffles the contents of a list in place.
-    """
+    "Shuffles the contents of a list in place."
     for i in range(len(a)):
         b = random.randrange(len(a))
         temp = a[i]
