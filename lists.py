@@ -51,8 +51,7 @@ def kDistinct(a):
 
 def SetDistinct(a):
     """
-    Takes in a list and returns number of distinct values. Computation is done
-    using a set.
+    Takes in a list and returns number of distinct values.
     """
     return len(set(a))
 
@@ -117,7 +116,7 @@ def removeDupInPlace(a):
 
 def removeDuplicates(a):
     """
-    Takes in an array and removes all the duplicates, by allocating extra
+    Takes in an array and removes all the duplicates by allocating extra
     memory.
     """
     copy = []
